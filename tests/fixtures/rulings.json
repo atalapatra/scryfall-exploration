@@ -1,0 +1,13 @@
+{
+  "object": "list",
+  "has_more": false,
+  "data": [
+    {
+      "object": "ruling",
+      "oracle_id": "edd531b9-f615-4399-8c8c-1c5e18c4acbf",
+      "source": "wotc",
+      "published_at": "2011-09-22",
+      "comment": "You may reveal the card even if it's not an instant or sorcery. Whether or not you reveal it, the card stays on top of your library."
+    }
+  ]
+}

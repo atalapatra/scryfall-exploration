@@ -1,0 +1,22 @@
+{
+  "object": "set",
+  "id": "bc94aba1-7376-4e02-a12d-3a2efb66ab0f",
+  "code": "m21",
+  "mtgo_code": "m21",
+  "arena_code": "m21",
+  "tcgplayer_id": 2653,
+  "name": "Core Set 2021",
+  "uri": "https://api.scryfall.com/sets/bc94aba1-7376-4e02-a12d-3a2efb66ab0f",
+  "scryfall_uri": "https://scryfall.com/sets/m21",
+  "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Am21&unique=prints",
+  "released_at": "2020-07-03",
+  "set_type": "core",
+  "card_count": 397,
+  "printed_size": 274,
+  "digital": false,
+  "nonfoil_only": false,
+  "foil_only": false,
+  "block_code": "lea",
+  "block": "Core Set",
+  "icon_svg_uri": "https://svgs.scryfall.io/sets/m21.svg?1794200400"
+}
