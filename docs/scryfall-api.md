@@ -71,7 +71,26 @@ Endpoint parameters:
   | `art_tags`, `oracle_tags` | | tagger data; not card objects |
 - Files are regenerated about every 12 hours.
 
+## Tags (Tagger) **[verified 2026-11-11]** (fixture: `oracle_tags_subset.json`)
+- **Card objects do not include tags.** Get them from the `oracle_tags` bulk file (about 6 MB compressed, about 4,600 tags). There is also `art_tags`, which is about the artwork.
+- Each record has these fields:
+  - `object: "tag"`, `id`, `slug` (e.g. `mana-rock`), `label` (e.g. `mana rock`), `type: "oracle"`, `description`
+  - `parent_ids`, `child_ids`, `aliases`
+  - `taggings: [{oracle_id, weight}]`. `weight` is almost always `median`; a few hundred are `very_strong`.
+- Tags are keyed by **`oracle_id`**, not by printing `id`.
+- **Tags form a hierarchy.** Broad tags often have *no* direct taggings: `removal` has 0 and gets its cards through 25 child tags. `tags_for(..., inherited=True)` follows `parent_ids`, which matches what `otag:removal` returns in search.
+  - Examples: Sol Ring is tagged `mana-rock`, whose parent is `mana-producer`, whose parent is `ramp`. Cyclonic Rift gets `sweeper` and `spot-removal`, both children of `removal`.
+- Slugs are what search uses: `otag:mana-rock` works through the API. To find cards with a tag, search; to find a card's tags, use the bulk file.
+- Common broad tags: `ramp`, `card-advantage`, `draw`, `removal`, `spot-removal`, `sweeper`, `counterspell`, `tutor`, `protection`, `recursion`. **Not** valid slugs: `board-wipe`, `wrath`, `reanimation`, `stax`. `TagIndex.get()` also accepts aliases, e.g. `wipe` finds `sweeper`.
+
+## EDHREC rank **[verified 2026-11-11]**
+- `edhrec_rank` is a top-level card field: 1 is the most-played Commander card (Sol Ring). It is missing or `null` for basic lands and cards not legal in Commander.
+
 ## Other endpoints used
 - `/cards/collection` (POST): at most 75 identifiers per request; returns `data` and `not_found`. The client splits larger requests into batches. **[docs]**
+  - **[verified 2026-11-11]** (fixture: `collection.json`):
+    - `data` keeps the request order, with misses left out. `not_found` echoes back the identifiers exactly as sent. `cards_for()` relies on both to match results to requests by position.
+    - Names match case-insensitively, and accents can be left off.
+    - Multi-face cards (split, transform, adventure) are found by their **front-face** name only. Sending `"Fire // Ice"` returns `not_found`, but `"Fire"` works.
 - `/symbology/parse-mana?cost=...` returns a `mana_cost` object (`cmc`, `colors`, `multicolored`, ...). **[verified 2026-11-11]**
 - `/catalog/{name}` returns `{"data": [str, ...]}`, e.g. `card-names`, `creature-types`. **[docs]**

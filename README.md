@@ -39,6 +39,28 @@ for card in bulk.iter_cards(path):               # reads one card at a time; low
 # also: bulk.iter_rulings(path), bulk.iter_records(path) for raw dicts (e.g. art_tags)
 ```
 
+### Card lists: EDHREC rank, roles and tags
+
+```bash
+python scripts/card_info.py examples/decklist.txt               # table, plus a count of each role
+python scripts/card_info.py deck.txt --csv deck.csv --sort edhrec
+python scripts/card_info.py deck.txt --roles ramp,removal,draw,wipe
+```
+
+```python
+from scryfall.decklist import lookup
+from scryfall.tags import TagIndex
+
+tags = TagIndex.load(sf)                         # downloads oracle_tags (~6 MB) when it changes
+result = lookup(sf, open("deck.txt").read(), tag_index=tags)
+for info in result.cards:
+    print(info.card.name, info.card.edhrec_rank, info.roles)
+result.rows()                                    # flat dicts, ready for pandas or CSV
+tags.tags_for(card)                              # every tag, including inherited ones like "ramp"
+```
+
+The parser accepts plain names, `4x Name`, `1 Name (SET) 123 *F*`, `A // B` names, section headers, `SB:` lines and Archidekt `[Category]` labels.
+
 ## Project docs
 - [CLAUDE.md](CLAUDE.md): short orientation for AI-assisted sessions
 - [docs/scryfall-api.md](docs/scryfall-api.md): API behaviour and data shapes (marked as verified or from docs)

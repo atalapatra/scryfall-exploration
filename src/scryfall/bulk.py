@@ -32,11 +32,13 @@ def download(
     dest_dir: str | Path = "data",
     *,
     force: bool = False,
+    keep_old: bool = False,
 ) -> Path:
     """Download a bulk file and return its local path.
 
     Skips the download if the newest version is already saved locally (files
     are named after their ``updated_at`` timestamp), unless ``force=True``.
+    After a new download, older files of the same type are deleted unless ``keep_old=True``.
     """
     info = client.bulk_data_info(type)
     url = info.raw.get("jsonl_download_uri") or info.raw.get("download_uri")
@@ -59,6 +61,10 @@ def download(
             for chunk in resp.iter_bytes(1 << 20):
                 fh.write(chunk)
     tmp.replace(dest)
+    if not keep_old:
+        for old in dest.parent.glob(f"{type}-*"):
+            if old != dest and old.name[len(type) + 1 : len(type) + 15].isdigit():
+                old.unlink()
     return dest
 
 

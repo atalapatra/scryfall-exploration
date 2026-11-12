@@ -249,6 +249,33 @@ class ScryfallClient:
             not_found.extend(data.get("not_found", []))
         return cards, not_found
 
+    def cards_for(self, identifiers: Iterable[dict[str, Any]]) -> list[Card | None]:
+        """Like ``collection``, but returns one result per identifier, in order, with ``None`` for misses.
+
+        Scryfall returns found cards in request order and leaves out the misses (listed in
+        ``not_found``), so results are matched back to identifiers by position.
+        """
+        ids = list(identifiers)
+        out: list[Card | None] = []
+        for start in range(0, len(ids), COLLECTION_BATCH_SIZE):
+            batch = ids[start : start + COLLECTION_BATCH_SIZE]
+            data = self.request("POST", "/cards/collection", json={"identifiers": batch})
+            cards = data.get("data", [])
+            missing = [_norm_ident(i) for i in data.get("not_found", [])]
+            if len(cards) + len(missing) != len(batch):
+                raise ScryfallError(
+                    f"/cards/collection returned {len(cards)} cards + {len(missing)} not found for {len(batch)} identifiers"
+                )
+            found = iter(cards)
+            for ident in batch:
+                norm = _norm_ident(ident)
+                if norm in missing:
+                    missing.remove(norm)
+                    out.append(None)
+                else:
+                    out.append(self._wrap(next(found)))
+        return out
+
     def rulings(self, card_id: str) -> list[Ruling]:
         return list(self.paginate(f"/cards/{card_id}/rulings"))
 
@@ -296,6 +323,10 @@ def _clean_params(params: dict[str, Any] | None) -> dict[str, Any] | None:
             continue
         out[key] = ("true" if value else "false") if isinstance(value, bool) else value
     return out or None
+
+
+def _norm_ident(ident: dict[str, Any]) -> tuple:
+    return tuple(sorted((k, str(v).lower()) for k, v in ident.items()))
 
 
 def _path_of(path: str) -> str:

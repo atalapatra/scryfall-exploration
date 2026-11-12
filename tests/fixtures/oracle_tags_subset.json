@@ -1,0 +1,648 @@
+{
+  "sample_cards": {
+    "6ad8011d-3471-4369-9d68-b264cc027487": "Sol Ring",
+    "b1544f21-7e98-461b-aed5-e748b0168c52": "Swords to Plowshares",
+    "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b": "Cyclonic Rift"
+  },
+  "records": [
+    {
+      "object": "tag",
+      "id": "022df3fc-9720-478d-8b40-755865b70cdb",
+      "label": "blue effect",
+      "slug": "blue-effect",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/blue-effect",
+      "description": "Effects which are iconically blue.",
+      "parent_ids": [],
+      "child_ids": [
+        "28369f1b-1cf8-4077-99aa-e32fd59c19e1"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "0c584af0-6c13-4f44-8ef2-56d4dccce473",
+      "label": "drawback",
+      "slug": "drawback",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/drawback",
+      "description": "Cards that have some kind of disadvantage. ",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [
+        "own at cost",
+        "downside"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "1a19fbcd-ec54-417c-baa0-01c53b32388b",
+      "label": "single target instant/sorcery",
+      "slug": "single-target-instant-sorcery",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/single-target-instant-sorcery",
+      "description": "Instant/sorcery spells that may target only one target. This is materially important for some effects that care about single targets. Not mutually exclusive with [multiple targets](/tags/card/multiple-targets).",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [
+        "single target spell"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "weight": "median"
+        },
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "28369f1b-1cf8-4077-99aa-e32fd59c19e1",
+      "label": "removal-bounce",
+      "slug": "removal-bounce",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-bounce",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9",
+        "de1ee67d-74ab-4ffc-8d65-1e5c0d233464",
+        "022df3fc-9720-478d-8b40-755865b70cdb"
+      ],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "2f3e4ad7-5e60-41b4-bdbc-653f16869cf6",
+      "label": "ramp",
+      "slug": "ramp",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/ramp",
+      "description": "Effects that increase available mana for current or later turns.",
+      "parent_ids": [],
+      "child_ids": [
+        "5f1260dd-e1dc-435a-a9ff-ce7172b7a5cd"
+      ],
+      "aliases": [
+        "mana ramp",
+        "acceleration"
+      ],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "33aff104-fb99-4b0f-936a-5296bba57701",
+      "label": "opponent lifegain",
+      "slug": "opponent-lifegain",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/opponent-lifegain",
+      "description": "Cards that make your opponents gain life.",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "33b97ce5-f156-4332-9ecc-1e0256702f26",
+      "label": "sweeper-one-sided",
+      "slug": "sweeper-one-sided",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/sweeper-one-sided",
+      "description": "Sweepers that are, or have high potential to be, one-sided.",
+      "parent_ids": [
+        "3fb7e4fd-5304-4120-b7c4-8a89f70ad3f0"
+      ],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "3fb7e4fd-5304-4120-b7c4-8a89f70ad3f0",
+      "label": "sweeper",
+      "slug": "sweeper",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/sweeper",
+      "description": "_o\\ Destroy all the things! See also [spot removal](spot-removal) and [multi removal](multi-removal).",
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "33b97ce5-f156-4332-9ecc-1e0256702f26"
+      ],
+      "aliases": [
+        "wipe",
+        "mass removal",
+        "boardwipe",
+        "wrath of god"
+      ],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "40570ef7-e185-4f0b-ba52-edc4de748817",
+      "label": "more expensive than mv",
+      "slug": "more-expensive-than-mv",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/more-expensive-than-mv",
+      "description": "The actual cost you pay for an effect (or for an alternate mode) will often be higher than the card's mana value. See also [cards with X in their mana cost](https://scryfall.com/search?q=m%3Ax).",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [
+        "bigger than mv"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "43a67a5e-2053-4c00-8d73-f56751ad6a01",
+      "label": "removal-battle",
+      "slug": "removal-battle",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-battle",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "444f824c-f910-4530-9dbe-ede7a84cd7f9",
+      "label": "removal",
+      "slug": "removal",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal",
+      "description": "Get things off the table.",
+      "parent_ids": [],
+      "child_ids": [
+        "d91e421d-ff87-4aad-a4bf-5aefc51252b6",
+        "ea1ae714-3500-481b-9bdd-f33c57db8678",
+        "ecee5d4b-f573-4ec8-b918-ad134873005e",
+        "e8aefad7-dea9-4c48-80a2-8a4ef5996dea",
+        "70a43edc-86e9-4ad9-abf8-7feefee35d5d",
+        "89d7c9d3-f820-4b16-8507-75977dba8d39",
+        "591fb358-e9d7-490e-8c15-24aecbbe697e",
+        "43a67a5e-2053-4c00-8d73-f56751ad6a01",
+        "cc12d27d-1d0e-4849-9551-71caead74d24",
+        "4dbace62-9708-4c6e-975a-c09fae7bb7e7",
+        "28369f1b-1cf8-4077-99aa-e32fd59c19e1",
+        "f79b019e-fdf5-48e0-a3af-bc0e4c8d8c95",
+        "9d6ce7cd-6fb8-4273-b663-d44ec6b16483",
+        "3fb7e4fd-5304-4120-b7c4-8a89f70ad3f0"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "458887e7-bfa8-4933-8746-4c9efb578c54",
+      "label": "adds multiple mana",
+      "slug": "adds-multiple-mana",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/adds-multiple-mana",
+      "description": "Cards that net you more than one mana at a time.",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [
+        "produces multiple mana"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "4caab3cc-1d60-44fb-a26a-cc833bc67c97",
+      "label": "lifegain",
+      "slug": "lifegain",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/lifegain",
+      "description": "Cards that cause you to gain life.",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [
+        "life gain"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "4dbace62-9708-4c6e-975a-c09fae7bb7e7",
+      "label": "removal-exile",
+      "slug": "removal-exile",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-exile",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "523a4f29-25ee-483c-8123-a8e62b62af5a",
+      "label": "mana rock",
+      "slug": "mana-rock",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/mana-rock",
+      "description": "Noncreature artifacts that net increase your mana.",
+      "parent_ids": [
+        "5f1260dd-e1dc-435a-a9ff-ce7172b7a5cd"
+      ],
+      "child_ids": [],
+      "aliases": [
+        "manarock-chosen-color",
+        "manarock-any-color",
+        "manarock-ccc",
+        "manarock-cc",
+        "manarock-c",
+        "manarock"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
+          "weight": "very_strong"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "5882dba5-2955-4c88-a399-604f1cf58784",
+      "label": "alternative cost",
+      "slug": "alternative-cost",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/alternative-cost",
+      "description": "Spells with alternative casting costs, which may be cheaper or more expensive than their mana costs. See CR 118.9.",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [
+        "alternate-cost"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "591fb358-e9d7-490e-8c15-24aecbbe697e",
+      "label": "removal-planeswalker",
+      "slug": "removal-planeswalker",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-planeswalker",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [
+        "planeswalker removal"
+      ],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "5f1260dd-e1dc-435a-a9ff-ce7172b7a5cd",
+      "label": "mana producer",
+      "slug": "mana-producer",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/mana-producer",
+      "description": "Nonland cards that generate mana.",
+      "parent_ids": [
+        "2f3e4ad7-5e60-41b4-bdbc-653f16869cf6"
+      ],
+      "child_ids": [
+        "523a4f29-25ee-483c-8123-a8e62b62af5a"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "70a43edc-86e9-4ad9-abf8-7feefee35d5d",
+      "label": "removal-equipment",
+      "slug": "removal-equipment",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-equipment",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "7deb3a80-1a94-485b-b66d-ef400700a616",
+      "label": "full refund",
+      "slug": "full-refund",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/full-refund",
+      "description": "Cards that give you mana equal to or greater than the amount of mana spent for it, either in the form of a immediately usable mana ability, a ritual effect, or untapped lands ",
+      "parent_ids": [
+        "82e2cb8b-1a53-4814-a7a2-76c1369055b4"
+      ],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "82e2cb8b-1a53-4814-a7a2-76c1369055b4",
+      "label": "refund",
+      "slug": "refund",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/refund",
+      "description": "Immediately get mana or untapped lands back.",
+      "parent_ids": [],
+      "child_ids": [
+        "7deb3a80-1a94-485b-b66d-ef400700a616"
+      ],
+      "aliases": [
+        "instant rebate"
+      ],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "89d7c9d3-f820-4b16-8507-75977dba8d39",
+      "label": "removal-nonland",
+      "slug": "removal-nonland",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-nonland",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9",
+        "ea1ae714-3500-481b-9bdd-f33c57db8678",
+        "ecee5d4b-f573-4ec8-b918-ad134873005e",
+        "d91e421d-ff87-4aad-a4bf-5aefc51252b6",
+        "591fb358-e9d7-490e-8c15-24aecbbe697e",
+        "43a67a5e-2053-4c00-8d73-f56751ad6a01",
+        "70a43edc-86e9-4ad9-abf8-7feefee35d5d",
+        "e8aefad7-dea9-4c48-80a2-8a4ef5996dea",
+        "f79b019e-fdf5-48e0-a3af-bc0e4c8d8c95",
+        "9d6ce7cd-6fb8-4273-b663-d44ec6b16483"
+      ],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "92c990fa-2b50-4f04-a95e-ad8b62284d7e",
+      "label": "pseudo-fog",
+      "slug": "pseudo-fog",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/pseudo-fog",
+      "description": "Effects that can protect you from an entire combat phase, similar to the card Fog, but using less conventional means than damage prevention.",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "9d6ce7cd-6fb8-4273-b663-d44ec6b16483",
+      "label": "removal-vehicle",
+      "slug": "removal-vehicle",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-vehicle",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "acf78b42-a1d5-4829-bef0-69204f29e260",
+      "label": "activated ability",
+      "slug": "activated-ability",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/activated-ability",
+      "description": "Cards with activated abilities. Not for cards that only gain or give activated abilities.",
+      "parent_ids": [],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "cc12d27d-1d0e-4849-9551-71caead74d24",
+      "label": "spot removal",
+      "slug": "spot-removal",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/spot-removal",
+      "description": "Removal for one target specifically.  See also [sweeper](sweeper) and [multi removal](multi-removal).",
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [],
+      "aliases": [],
+      "taggings": [
+        {
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "weight": "median"
+        },
+        {
+          "oracle_id": "d75b9c82-1b49-4c3e-a1b5-aeef57d6644b",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "d91e421d-ff87-4aad-a4bf-5aefc51252b6",
+      "label": "removal-creature",
+      "slug": "removal-creature",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-creature",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [
+        "creature removal"
+      ],
+      "taggings": [
+        {
+          "oracle_id": "b1544f21-7e98-461b-aed5-e748b0168c52",
+          "weight": "median"
+        }
+      ]
+    },
+    {
+      "object": "tag",
+      "id": "de1ee67d-74ab-4ffc-8d65-1e5c0d233464",
+      "label": "bounce",
+      "slug": "bounce",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/bounce",
+      "description": "Returning a permanent from the battlefield to its owner's hand",
+      "parent_ids": [],
+      "child_ids": [
+        "28369f1b-1cf8-4077-99aa-e32fd59c19e1"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "e8aefad7-dea9-4c48-80a2-8a4ef5996dea",
+      "label": "removal-aura",
+      "slug": "removal-aura",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-aura",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "ea1ae714-3500-481b-9bdd-f33c57db8678",
+      "label": "removal-artifact",
+      "slug": "removal-artifact",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-artifact",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [
+        "artifact removal"
+      ],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "ecee5d4b-f573-4ec8-b918-ad134873005e",
+      "label": "removal-enchantment",
+      "slug": "removal-enchantment",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-enchantment",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [
+        "enchantment removal"
+      ],
+      "taggings": []
+    },
+    {
+      "object": "tag",
+      "id": "f79b019e-fdf5-48e0-a3af-bc0e4c8d8c95",
+      "label": "removal-spacecraft",
+      "slug": "removal-spacecraft",
+      "type": "oracle",
+      "uri": "https://tagger.scryfall.com/tags/card/removal-spacecraft",
+      "description": null,
+      "parent_ids": [
+        "444f824c-f910-4530-9dbe-ede7a84cd7f9"
+      ],
+      "child_ids": [
+        "89d7c9d3-f820-4b16-8507-75977dba8d39"
+      ],
+      "aliases": [],
+      "taggings": []
+    }
+  ]
+}

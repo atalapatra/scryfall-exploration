@@ -11,6 +11,9 @@ A Python framework for the Scryfall (Magic: The Gathering card data) API, plus e
 - `client.py`: `ScryfallClient`. All HTTP goes through `request()` (headers, rate limit, retry, cache, errors). Endpoint helpers sit on top.
 - `models.py`: dataclass wrappers (`Card`, `Set`, ...). Fields without a typed attribute fall back to `.raw` via `__getattr__`.
 - `bulk.py`: bulk file download (`.jsonl.gz`) and streaming readers.
+- `tags.py`: `TagIndex`, which gets a card's Tagger tags (with inherited parent tags) from the `oracle_tags` bulk file.
+- `decklist.py`: parses text card lists and runs `lookup()`, returning cards with EDHREC rank, roles and tags.
+- `scripts/card_info.py`: command-line tool. Run `python scripts/card_info.py <list.txt> [--csv out.csv]`.
 - `ratelimit.py`, `cache.py`, `errors.py`: support code.
 - `tests/fixtures/*.json`: **real** API responses; check data shapes here before assuming.
 

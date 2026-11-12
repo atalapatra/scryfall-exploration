@@ -2,6 +2,18 @@
 
 Newest first. Each entry: what was decided, why, and what would make us revisit it.
 
+## 2026-11-11: Card tags come from the oracle_tags bulk file, including inherited parents
+The API's card objects have no tags, and searching `otag:` once per tag per card would take thousands of requests. So `TagIndex` loads the `oracle_tags` bulk file (6 MB, refreshed at most twice a day) and, by default, adds each tag's ancestors. Without that, broad categories like `removal` never appear.
+`DEFAULT_ROLES` is a hand-picked list of broad deck-role tags, for a readable summary; the full tag list is kept in the `tags` column.
+Revisit if: you want your own categories. Pass `roles=`, or map tags to your own groups.
+
+## 2026-11-11: Decklist lookups use /cards/collection, matched back to lines by position
+`cards_for()` sends each distinct identifier once, in batches of 75, and matches results to requests by position, using `not_found` to place the misses. Matching by name instead would break on accents and multi-face names. If the counts don't add up, it raises an error rather than guessing.
+The parser sends only the front-face name, because Scryfall doesn't match full `A // B` names.
+
+## 2026-11-11: bulk.download deletes older files of the same type
+Files are timestamped and regenerated about every 12 hours, so old copies would keep piling up in `data/`. Pass `keep_old=True` to keep them, e.g. for comparing prices over time.
+
 ## 2026-11-11: Bulk files are saved compressed and read as JSON Lines
 Scryfall switched bulk data to gzipped `.jsonl` (`jsonl_download_uri`). We save the `.jsonl.gz` as-is, which is about 5x smaller on disk, and decompress line by line while reading. The JSON-array reader (`iter_json_array`) stays for older files.
 Revisit if: we query the same bulk data repeatedly. Then load it into SQLite or Parquet once instead of re-parsing.
