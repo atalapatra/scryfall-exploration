@@ -5,19 +5,21 @@ A Python framework for the Scryfall (Magic: The Gathering card data) API, plus e
 ## Commands
 - Setup: `python -m venv .venv` then `.venv\Scripts\python -m pip install -e ".[dev]"`
 - Tests: `.venv\Scripts\python -m pytest -q` (offline, fast)
+- Other repos install it from GitHub: `pip install "atalapatra_scryfall @ git+https://github.com/atalapatra/scryfall-exploration.git@<tag>"`. The version lives only in `atalapatra_scryfall/__init__.py` (`__version__`); bump it and push a `vX.Y.Z` tag to release.
 - Refresh fixtures from the live API: `.venv\Scripts\python scripts/capture_fixtures.py`
 
-## Layout (`src/scryfall/`)
+## Layout (`src/atalapatra_scryfall/`)
 - `client.py`: `ScryfallClient`. All HTTP goes through `request()` (headers, rate limit, retry, cache, errors). Endpoint helpers sit on top.
 - `models.py`: dataclass wrappers (`Card`, `Set`, ...). Fields without a typed attribute fall back to `.raw` via `__getattr__`.
 - `bulk.py`: bulk file download (`.jsonl.gz`) and streaming readers.
 - `tags.py`: `TagIndex`, which gets a card's Tagger tags (with inherited parent tags) from the `oracle_tags` bulk file.
 - `decklist.py`: parses text card lists and runs `lookup()`, returning cards with EDHREC rank, roles and tags.
-- `scripts/card_info.py`: command-line tool. Run `python scripts/card_info.py <list.txt> [--csv out.csv]`.
+- `cli.py`: the `scryfall-card-info` command (entry point in `pyproject.toml`). Run `scryfall-card-info <list.txt> [--csv out.csv]`.
 - `ratelimit.py`, `cache.py`, `errors.py`: support code.
 - `tests/fixtures/*.json`: **real** API responses; check data shapes here before assuming.
 
 ## Rules
+- Code that ships to other repos lives in `src/atalapatra_scryfall/`; `scripts/` is repo-only tooling and isn't installed.
 - Tests never hit the live API: use `httpx.MockTransport` (see `make_client` / `client_returning` in tests).
 - Every API call goes through `ScryfallClient.request` so rate limiting and the required headers apply. Never call `httpx` directly for api.scryfall.com.
 - Don't add typed model fields just to read a value; `card.some_field` already works through `.raw`. Add typed fields for commonly used or converted values.

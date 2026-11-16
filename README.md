@@ -2,7 +2,26 @@
 
 A small Python framework for the [Scryfall API](https://scryfall.com/docs/api).
 
-## Setup
+## Install in another project
+
+The package is named `atalapatra_scryfall` (pip also accepts `atalapatra-scryfall`), and you import it as `atalapatra_scryfall`. Install it straight from GitHub:
+
+```bash
+pip install "atalapatra_scryfall @ git+https://github.com/atalapatra/scryfall-exploration.git@v0.1.0"   # pinned to a tag
+pip install "atalapatra_scryfall @ git+https://github.com/atalapatra/scryfall-exploration.git@main"     # latest
+```
+
+Or list it as a dependency in the other project's `pyproject.toml`:
+
+```toml
+dependencies = ["atalapatra_scryfall @ git+https://github.com/atalapatra/scryfall-exploration.git@v0.1.0"]
+```
+
+(In `requirements.txt`, use the same `atalapatra_scryfall @ git+...` line.) Pin to a tag or commit so upgrades only happen when you choose them. To release a new version: bump `__version__` in `src/atalapatra_scryfall/__init__.py`, commit, then `git tag vX.Y.Z && git push --tags`.
+
+Paths such as `FileCache()` (`.scryfall_cache/`), `bulk.download(...)` and `TagIndex.load(...)` (`data/`) are relative to the current working directory, so pass `directory=` / `dest_dir=` to put them somewhere else.
+
+## Development setup
 
 ```bash
 python -m venv .venv
@@ -14,7 +33,7 @@ pytest
 ## Usage
 
 ```python
-from scryfall import ScryfallClient, FileCache
+from atalapatra_scryfall import ScryfallClient, FileCache
 
 with ScryfallClient(user_agent="my-app/0.1", cache=FileCache()) as sf:
     card = sf.named("Lightning Bolt")            # exact name, or fuzzy=True
@@ -31,7 +50,7 @@ with ScryfallClient(user_agent="my-app/0.1", cache=FileCache()) as sf:
 ### Bulk data (for analysing many cards)
 
 ```python
-from scryfall import bulk
+from atalapatra_scryfall import bulk
 
 path = bulk.download(sf, "oracle_cards")         # saves data/oracle_cards-<timestamp>.jsonl.gz; skipped if already saved
 for card in bulk.iter_cards(path):               # reads one card at a time; low memory use
@@ -41,15 +60,17 @@ for card in bulk.iter_cards(path):               # reads one card at a time; low
 
 ### Card lists: EDHREC rank, roles and tags
 
+Installing the package adds the `scryfall-card-info` command (also available as `python -m atalapatra_scryfall.cli`).
+
 ```bash
-python scripts/card_info.py examples/decklist.txt               # table, plus a count of each role
-python scripts/card_info.py deck.txt --csv deck.csv --sort edhrec
-python scripts/card_info.py deck.txt --roles ramp,removal,draw,wipe
+scryfall-card-info examples/decklist.txt               # table, plus a count of each role
+scryfall-card-info deck.txt --csv deck.csv --sort edhrec
+scryfall-card-info deck.txt --roles ramp,removal,draw,wipe
 ```
 
 ```python
-from scryfall.decklist import lookup
-from scryfall.tags import TagIndex
+from atalapatra_scryfall.decklist import lookup
+from atalapatra_scryfall.tags import TagIndex
 
 tags = TagIndex.load(sf)                         # downloads oracle_tags (~6 MB) when it changes
 result = lookup(sf, open("deck.txt").read(), tag_index=tags)

@@ -3,9 +3,9 @@ from pathlib import Path
 
 import httpx
 
-from scryfall import Card, RateLimiter, ScryfallClient
-from scryfall.decklist import lookup, parse_decklist
-from scryfall.tags import TagIndex
+from atalapatra_scryfall import Card, RateLimiter, ScryfallClient
+from atalapatra_scryfall.decklist import lookup, parse_decklist
+from atalapatra_scryfall.tags import TagIndex
 
 FIXTURES = Path(__file__).parent / "fixtures"
 

@@ -7,7 +7,7 @@ Re-run this whenever you want fixtures that match Scryfall's current responses.
 import json
 from pathlib import Path
 
-from scryfall import ScryfallAPIError, ScryfallClient, bulk
+from atalapatra_scryfall import ScryfallAPIError, ScryfallClient, bulk
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tests" / "fixtures"

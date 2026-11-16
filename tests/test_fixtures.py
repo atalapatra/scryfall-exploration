@@ -7,8 +7,8 @@ from pathlib import Path
 import httpx
 import pytest
 
-from scryfall import BulkData, Card, ManaCost, NotFoundError, RateLimiter, Ruling, ScryfallClient, Set, bulk
-from scryfall.models import parse_object
+from atalapatra_scryfall import BulkData, Card, ManaCost, NotFoundError, RateLimiter, Ruling, ScryfallClient, Set, bulk
+from atalapatra_scryfall.models import parse_object
 
 FIXTURES = Path(__file__).parent / "fixtures"
 

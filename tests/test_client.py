@@ -3,8 +3,8 @@ import json
 import httpx
 import pytest
 
-from scryfall import Card, MemoryCache, NotFoundError, RateLimiter, ScryfallAPIError, ScryfallClient
-from scryfall.bulk import iter_json_array
+from atalapatra_scryfall import Card, MemoryCache, NotFoundError, RateLimiter, ScryfallAPIError, ScryfallClient
+from atalapatra_scryfall.bulk import iter_json_array
 
 BOLT = {
     "object": "card",

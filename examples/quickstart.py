@@ -2,7 +2,7 @@
 
 from itertools import islice
 
-from scryfall import FileCache, ScryfallClient
+from atalapatra_scryfall import FileCache, ScryfallClient
 
 with ScryfallClient(user_agent="scryfall-exploration/0.1", cache=FileCache()) as sf:
     bolt = sf.named("lightnin bolt", fuzzy=True)

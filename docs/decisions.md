@@ -2,6 +2,11 @@
 
 Newest first. Each entry: what was decided, why, and what would make us revisit it.
 
+## 2026-11-16: Installed from GitHub; the card-list CLI moved into the package
+Other repos install the package with `pip install "atalapatra_scryfall @ git+https://github.com/...@<tag>"` rather than from PyPI. Both the distribution and the import name are `atalapatra_scryfall` instead of `scryfall`. That avoids a clash with any other package called `scryfall` (on PyPI, or another library installed in the same environment) and keeps the import name the same as the install name. Releases are git tags (`vX.Y.Z`), and the version is read from `atalapatra_scryfall.__version__` so there is only one place to bump it.
+`scripts/card_info.py` became `atalapatra_scryfall/cli.py` with a `scryfall-card-info` console entry point, because `scripts/` isn't part of the installed package. `py.typed` is included so type checkers in other projects use the type hints.
+Revisit if: we publish to PyPI. The namespaced name should work there as it is.
+
 ## 2026-11-11: Card tags come from the oracle_tags bulk file, including inherited parents
 The API's card objects have no tags, and searching `otag:` once per tag per card would take thousands of requests. So `TagIndex` loads the `oracle_tags` bulk file (6 MB, refreshed at most twice a day) and, by default, adds each tag's ancestors. Without that, broad categories like `removal` never appear.
 `DEFAULT_ROLES` is a hand-picked list of broad deck-role tags, for a readable summary; the full tag list is kept in the `tags` column.

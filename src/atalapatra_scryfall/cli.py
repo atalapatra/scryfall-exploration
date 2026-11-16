@@ -1,11 +1,11 @@
 """Look up EDHREC rank, roles and tags for every card in a text list.
 
-Usage (from the repo root):
-    python scripts/card_info.py examples/decklist.txt
-    python scripts/card_info.py deck.txt --csv deck.csv
-    python scripts/card_info.py deck.txt --roles ramp,removal,draw,wipe
-    python scripts/card_info.py deck.txt --no-tags          # skip the ~6 MB tag download
-    type deck.txt | python scripts/card_info.py -          # read from stdin
+Usage (installed as the `scryfall-card-info` command; `python -m atalapatra_scryfall.cli` also works):
+    scryfall-card-info examples/decklist.txt
+    scryfall-card-info deck.txt --csv deck.csv
+    scryfall-card-info deck.txt --roles ramp,removal,draw,wipe
+    scryfall-card-info deck.txt --no-tags          # skip the ~6 MB tag download
+    type deck.txt | scryfall-card-info -          # read from stdin
 """
 
 import argparse
@@ -14,13 +14,13 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from scryfall import FileCache, ScryfallClient
-from scryfall.decklist import lookup
-from scryfall.tags import DEFAULT_ROLES, TagIndex
+from . import FileCache, ScryfallClient
+from .decklist import lookup
+from .tags import DEFAULT_ROLES, TagIndex
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(prog="scryfall-card-info", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("file", help="text file with one card per line, or - for stdin")
     parser.add_argument("--csv", type=Path, help="also write every field (including all tags) to this CSV file")
     parser.add_argument("--roles", help=f"comma-separated tags to show as roles (default: {','.join(DEFAULT_ROLES)})")

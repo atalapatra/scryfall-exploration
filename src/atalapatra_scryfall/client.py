@@ -1,7 +1,7 @@
 """The Scryfall API client.
 
 Example:
-    >>> from scryfall import ScryfallClient
+    >>> from atalapatra_scryfall import ScryfallClient
     >>> with ScryfallClient() as sf:
     ...     card = sf.named("Lightning Bolt")
     ...     for c in sf.search("t:dragon cmc<=4", order="cmc"):
@@ -305,7 +305,7 @@ class ScryfallClient:
         return self.request("GET", f"/catalog/{name}")["data"]
 
     def bulk_data(self) -> list[BulkData]:
-        """List the available bulk data files. See ``scryfall.bulk`` to download them."""
+        """List the available bulk data files. See ``atalapatra_scryfall.bulk`` to download them."""
         return list(self.paginate("/bulk-data"))
 
     def bulk_data_info(self, type: str) -> BulkData:
